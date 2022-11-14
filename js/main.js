@@ -1,9 +1,10 @@
 const startBtnEl = document.querySelector(".btn");
-// utilizzo come variabili globali i due array e il numero di numeri indovinati
+// utilizzo come variabili globali i due array e il numero di numeri indovinati, 
+// dichiaro anche un array nel quale metto i numeri che combaciano
 let randomArray = [];
 let numUtente = [];
 let contaCorrette = 0;
-
+let arrayNumCorretti = [];
 // al click sul pulsante compaiono i numeri e parte il timer
 startBtnEl.addEventListener("click", function(){
     const numContainer= document.querySelector(".numContainer");
@@ -28,15 +29,21 @@ startBtnEl.addEventListener("click", function(){
     }, 3000);
 
     setTimeout(() => {
+        let j = 0;
         for (let i = 0; i<5; i++){
             numUtente[i] = prompt("inserisci i numeri che ti ricordi, vai con il numero: " + (i+1));
 
             if (randomArray.includes(parseInt(numUtente[i]))){
                 contaCorrette += 1;
-                
+                arrayNumCorretti[j] = numUtente[i];
+                j += 1;
             }
         }
+        // stampo i numeri trovati
+        const numGiustiEl = document.querySelector(".numGiusti")
+        numGiustiEl.innerHTML = `Hai trovato ${contaCorrette} numeri giusti, ed essi sono ${arrayNumCorretti}`
         console.log(contaCorrette);
+        console.log(arrayNumCorretti);
     }, 3500);
     
 })
