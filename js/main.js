@@ -26,7 +26,7 @@ startBtnEl.addEventListener("click", function(){
     // Per far sì che il prompt avvenga dopo che scompaiano i numeri faccio un altro settimeout
     setTimeout(() => {
             numContainer.classList.add("d-none")
-    }, 3000);
+    }, 30000);
 
     setTimeout(() => {
         let j = 0;
@@ -44,7 +44,7 @@ startBtnEl.addEventListener("click", function(){
         numGiustiEl.innerHTML = `Hai trovato ${contaCorrette} numeri giusti, ed essi sono ${arrayNumCorretti}`
         console.log(contaCorrette);
         console.log(arrayNumCorretti);
-    }, 3500);
+    }, 30500);
     
 })
 
